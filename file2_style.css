@@ -560,3 +560,221 @@ body::before {
     font-size: 36px;
     color: #7be0a2;
 }
+
+/* ========== PIANIKA OVERLAY - UKURAN KECIL ========== */
+.pianika-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 38vh;
+    max-height: 280px;
+    background: linear-gradient(180deg, #0f1a1a, #060d0d);
+    border-radius: 20px 20px 0 0;
+    transform: translateY(110%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 5000;
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.85);
+    border-top: 2px solid #3fbf7a;
+    display: flex;
+    flex-direction: column;
+    padding: 0.4rem 0.5rem 0.6rem;
+    touch-action: none;
+}
+.pianika-overlay.open {
+    transform: translateY(0);
+}
+
+/* Handle */
+.pianika-handle {
+    width: 32px;
+    height: 3px;
+    background: #3fbf7a;
+    border-radius: 10px;
+    margin: 0 auto 0.3rem auto;
+    cursor: pointer;
+    opacity: 0.4;
+    flex-shrink: 0;
+}
+.pianika-handle:active {
+    opacity: 1;
+}
+
+/* Header - Lebih Kecil */
+.pianika-header {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0 0.2rem 0.3rem 0.2rem;
+    border-bottom: 1px solid rgba(63, 191, 122, 0.12);
+    flex-shrink: 0;
+}
+.pianika-title {
+    flex: 1;
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: #c6ffdb;
+    letter-spacing: 0.3px;
+}
+.pianika-close-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.15s;
+    color: #ff8a7a;
+}
+.pianika-close-btn:active {
+    transform: scale(0.92);
+    background: rgba(255, 255, 255, 0.12);
+}
+.pianika-close-btn .material-icons {
+    font-size: 0.85rem;
+}
+
+/* Keyboard - Lebih Kecil */
+.pianika-keys {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0.3vw;
+    flex: 1;
+    padding: 0.3rem 0.2rem;
+    touch-action: none;
+    min-height: 80px;
+}
+
+.piano-key {
+    flex: 1;
+    max-width: 48px;
+    min-width: 22px;
+    height: 100%;
+    min-height: 65px;
+    max-height: 110px;
+    background: linear-gradient(180deg, #f5f5f5, #d4d4d4);
+    border-radius: 6px 6px 3px 3px;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 0.4rem;
+    cursor: pointer;
+    transition: 0.04s linear;
+    box-shadow: 0 3px 0 #aaa, 0 3px 8px rgba(0, 0, 0, 0.25);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+.piano-key:active {
+    transform: scale(0.94);
+    box-shadow: 0 1px 0 #aaa;
+}
+.piano-key.active {
+    background: linear-gradient(180deg, #ffe066, #f5c842);
+    box-shadow: 0 1px 0 #c9a030;
+    transform: scale(0.94);
+    border-color: #c9a030;
+}
+.piano-key .key-label {
+    font-weight: 800;
+    font-size: 0.7rem;
+    color: #222;
+}
+.piano-key .key-hint {
+    font-size: 0.4rem;
+    font-weight: 600;
+    color: #666;
+    margin-top: 1px;
+    background: rgba(0, 0, 0, 0.08);
+    padding: 1px 5px;
+    border-radius: 6px;
+}
+.piano-key.active .key-hint {
+    color: #8a6a20;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/* Footer - Lebih Kecil */
+.pianika-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding-top: 0.25rem;
+    border-top: 1px solid rgba(63, 191, 122, 0.08);
+    color: #6a8a7a;
+    font-size: 0.5rem;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width: 480px) {
+    .pianika-overlay {
+        height: 42vh;
+        max-height: 260px;
+        padding: 0.3rem 0.3rem 0.5rem;
+        border-radius: 16px 16px 0 0;
+    }
+    .piano-key {
+        min-height: 55px;
+        min-width: 18px;
+        max-height: 90px;
+    }
+    .piano-key .key-label {
+        font-size: 0.55rem;
+    }
+    .piano-key .key-hint {
+        font-size: 0.35rem;
+        padding: 1px 3px;
+    }
+    .pianika-title {
+        font-size: 0.6rem;
+    }
+    .pianika-keys {
+        gap: 0.5vw;
+        padding: 0.2rem 0;
+        min-height: 70px;
+    }
+    .pianika-footer {
+        font-size: 0.4rem;
+        padding-top: 0.15rem;
+    }
+    .pianika-close-btn {
+        width: 20px;
+        height: 20px;
+    }
+    .pianika-close-btn .material-icons {
+        font-size: 0.7rem;
+    }
+    .pianika-handle {
+        width: 28px;
+        height: 3px;
+        margin: 0 auto 0.2rem auto;
+    }
+}
+
+@media(min-width: 768px) {
+    .pianika-overlay {
+        max-height: 300px;
+        height: 35vh;
+        padding: 0.5rem 0.8rem 0.7rem;
+    }
+    .piano-key {
+        max-width: 56px;
+        min-height: 85px;
+        max-height: 130px;
+    }
+    .piano-key .key-label {
+        font-size: 0.8rem;
+    }
+    .piano-key .key-hint {
+        font-size: 0.45rem;
+    }
+}
